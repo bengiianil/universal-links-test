@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Universal Link Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="font-family: -apple-system; text-align: center; padding: 50px;">
+    <h1>🚀 Universal Link Test</h1>
+    <p><strong>Source:</strong> <span id="source">yükleniyor...</span></p>
+    <p><strong>Campaign:</strong> <span id="campaign">yükleniyor...</span></p>
+    
+    <div style="margin-top: 30px; padding: 20px; background: #f0f0f0; border-radius: 10px;">
+        <h3>Test Sonucu:</h3>
+        <p id="result">Kontrol ediliyor...</p>
+    </div>
+    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('source') || 'belirlenmedi';
+        const campaign = urlParams.get('campaign') || 'belirlenmedi';
+        
+        document.getElementById('source').textContent = source;
+        document.getElementById('campaign').textContent = campaign;
+        
+        const resultEl = document.getElementById('result');
+        if (source === 'qr') {
+            resultEl.innerHTML = '✅ QR kod başarıyla tespit edildi!';
+            resultEl.style.color = 'green';
+        } else {
+            resultEl.innerHTML = '❌ QR kod tespit edilmedi';
+            resultEl.style.color = 'red';
+        }
+        
+        if (source !== 'belirlenmedi') {
+            localStorage.setItem('installSource', source);
+            localStorage.setItem('installTime', Date.now());
+        }
+        
+        console.log('Universal Link Test - Source:', source, 'Campaign:', campaign);
+    </script>
+</body>
+</html>
