@@ -1,0 +1,14 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "4SC3X3V4Z2.com.fordotosan.fordrewardsuat",
+                "paths": [
+                    "/install",
+                    "/install/*"
+                ]
+            }
+        ]
+    }
+}
